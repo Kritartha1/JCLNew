@@ -1,0 +1,24 @@
+//*-------------------------------------------------------------   
+//* ENROLLPR PROCEDURE DEFINITION   
+//*-------------------------------------------------------------    
+//ENROLLPR PROC   
+//STEP1    EXEC PGM=IKJEFT01   
+//STEPLIB  DD  DSN=YOUR.COBOL.LOADLIB,DISP=SHR   
+//         DD  DSN=YOUR.PLAN.LOADLIB,DISP=SHR   
+//SYSTSIN  DD  DSN=YOUR.CNTRL.DATA(COBOLDB2), DISP=SHR 
+//SYSTSPRT DD  SYSOUT=*   
+//ENRLIN   DD  DSN=YOUR.ENROLL.DATA.&LASTQUAL,DISP=SHR     
+//ENRPROC  DD  DSN=YOUR.ENROLL.PROC.D&LASTQUAL,   
+//             DISP=(NEW,CATLG,DELETE),   
+//             SPACE=(CYL,(1,1),RLSE),   
+//             DCB=(RECFM=FB,LRECL=80,BLKSIZE=800)   
+//ENRUNPRC DD  DSN=YOUR.ENROLL.UNPRC.D&LASTQUAL,   
+//             DISP=(NEW,CATLG,DELETE),   
+//             SPACE=(CYL,(1,1),RLSE),   
+//             DCB=(RECFM=FB,LRECL=80,BLKSIZE=800)   
+//STEP2    EXEC PGM=WRITEXRE,COND=(0,NE)   
+//STEPLIB  DD  DSN=YOUR.COBOL.LOADLIB,DISP=SHR   
+//ENRLPROC  DD  DSN=YOUR.ENROLL.PROC.D&LASTQUAL,DISP=SHR  
+//XREFOUT  DD  DSN=YOUR.XREF.DATA,DISP=(MOD,CATLG,DELETE),   
+//             SPACE=(CYL,(1,1),RLSE),   
+//             DCB=(RECFM=FB,LRECL=80,BLKSIZE=800)   
