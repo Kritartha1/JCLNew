@@ -7,8 +7,8 @@
 //SYMNAMES DD *                                                                 
 TRAN-CARD-NUM,263,16,ZD                                                         
 TRAN-PROC-DT,305,10,CH                                                          
-PARM-START-DATE,C'2022-01-01'                                      //Date       
-PARM-END-DATE,C'2022-07-06'                                        //Date       
+PARM-START-DATE,C'2022-01-01'                                           
+PARM-END-DATE,C'2022-07-06'                                            
 //SYSIN    DD *                                                                 
  SORT FIELDS=(TRAN-CARD-NUM,A)                                                  
  INCLUDE COND=(TRAN-PROC-DT,GE,PARM-START-DATE,AND,                             
