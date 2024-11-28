@@ -1,7 +1,7 @@
 //*------------------------------------------------------------- 
 //* CLMPROC PROCEDURE DEFINITION 
 //*------------------------------------------------------------- 
-//STEP1    EXEC PGM=CLAIMSP2,PARM='TN'COND=(0,NE),
+//STEP1    EXEC PGM=CLAIMSP2,PARM='TN',COND=(0,NE)
 //STEPLIB  DD  DSN=YOUR.COBOL.LOADLIB,DISP=SHR 
 //CLMSIN   DD  DSN=YOUR.CLAIMS.DATA.D&LASTQUAL,DISP=SHR 
 //XREFIN   DD  DSN=YOUR.XREF.DATA,DISP=SHR 
